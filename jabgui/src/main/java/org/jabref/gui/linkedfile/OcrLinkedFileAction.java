@@ -63,6 +63,8 @@ public class OcrLinkedFileAction extends SimpleCommand {
                 dialogService,
                 taskExecutor
         );
+        boolean fileExists = linkedFile.findIn(databaseContext, preferences.getFilePreferences()).isPresent();
+        this.setExecutable(fileExists);
     }
 
     @Override
